@@ -3,62 +3,74 @@ import { Instagram, Facebook } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="border-t bg-background">
-      <div className="container flex flex-col md:flex-row justify-between items-center py-8 gap-6 text-sm">
-        {/* Logo + Copyright */}
-        <div className="text-center md:text-left">
-          <p className="font-semibold uppercase tracking-wide">Fanci Club</p>
-          <p className="text-muted-foreground mt-1">
-            © {new Date().getFullYear()} Fanci. All rights reserved.
+    <footer className="px-24 pt-20 pb-10 space-y-20 bg-[#EDE6DE]/30">
+      <div className="max-w-[1440px] mx-auto text-center">
+        <div
+          style={{
+            lineHeight: "1.2",
+          }}
+          className="py-4 text-center w-2/5 px-3 font-light mx-auto uppercase text-lg"
+        >
+          <p>
+            Fancì Club is a collective of Vietnamese youth who live to celebrate
+            beauty and humanity, Carrying that message brings us gratitude for
+            life, and abundance of joy to create.
           </p>
         </div>
-
-        {/* Navigation */}
-        <div className="flex gap-4 text-muted-foreground">
-          <Link to="/" className="hover:text-foreground transition-colors">
-            Home
-          </Link>
-          <Link to="/products/garments" className="hover:text-foreground">
-            Shop
-          </Link>
-          <Link to="/collections/fw24" className="hover:text-foreground">
-            Collections
-          </Link>
-          <Link to="/explore" className="hover:text-foreground">
-            Explore
-          </Link>
+        <p className="text-xs font-medium mt-8">@fanci.club</p>
+      </div>
+      <div className="max-w-3xl flex justify-between mx-auto">
+        <div className="text-[10px] space-y-1">
+          <p>ABOUT</p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            FANCI
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            PRESS
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            JOIN US
+          </p>
         </div>
-
-        {/* Social icons */}
-        <div className="flex gap-4">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="hover:text-foreground"
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
-          <a
-            href="https://tiktok.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="TikTok"
-            className="hover:text-foreground"
-          >
-            {/* <Tiktok className="h-5 w-5" /> */}
-          </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Facebook"
-            className="hover:text-foreground"
-          >
-            <Facebook className="h-5 w-5" />
-          </a>
+        <div className="text-[10px] space-y-1">
+          <p>ABOUT</p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            FANCI
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            PRESS
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            JOIN US
+          </p>
         </div>
+        <div className="text-[10px] space-y-1">
+          <p>ABOUT</p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            FANCI
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            PRESS
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            JOIN US
+          </p>
+        </div>
+        <div className="text-[10px] space-y-1">
+          <p>ABOUT</p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            FANCI
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            PRESS
+          </p>
+          <p className="text-[#C9BFB6] hover:underline underline-offset-2 cursor-pointer">
+            JOIN US
+          </p>
+        </div>
+      </div>
+      <div className="w-full flex justify-between">
+        <p className="text-[10px]">© 2025 Fancì Club. All Rights Reserved.</p>
       </div>
     </footer>
   );

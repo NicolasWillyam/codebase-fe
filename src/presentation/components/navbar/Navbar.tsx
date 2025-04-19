@@ -1,54 +1,126 @@
-import { Link, NavLink } from "react-router-dom";
-import { ShoppingBag, User, Search } from "lucide-react";
+import { useEffect, useState } from "react";
+import { MegaMenuOverlay } from "./MegaMenuOverlay";
 import { cn } from "@/shared/libs/utils";
+import { AnimatePresence } from "framer-motion";
+import { LuShoppingBag, LuSearch, LuLogIn } from "react-icons/lu";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
-  { label: "Garments", to: "/products/garments" },
-  { label: "Accessories", to: "/products/accessories" },
-  { label: "Collections", to: "/collections" },
-  { label: "Explore", to: "/explore" },
-];
+  { label: "Garments", key: "garments" },
+  { label: "Accessories", key: "accessories" },
+  { label: "Collections", key: "collections" },
+  { label: "Explore", key: "explore" },
+] as const;
+
+type MenuKey = (typeof navItems)[number]["key"];
 
 export const Navbar = () => {
+  const [menuType, setMenuType] = useState<MenuKey | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  // ✅ Scroll logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      // Chỉ xử lý nếu vượt qua 100px
+      if (Math.abs(currentY - lastScrollY) < 10) return;
+
+      if (currentY > lastScrollY && currentY > 100) {
+        // cuộn xuống
+        setShowNavbar(false);
+      } else if (currentY < lastScrollY && currentY > 100) {
+        // cuộn lên
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const toggleMenu = (key: MenuKey) => {
+    if (key === menuType && isOpen) {
+      setIsOpen(false);
+    } else {
+      setMenuType(key);
+      setIsOpen(true);
+    }
+  };
+
+  const textColor = isHome || isOpen ? "text-white" : "text-black";
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="text-lg font-bold tracking-widest uppercase">
-          FANCI CLUB
-        </Link>
+    <>
+      <header
+        className={cn(
+          "max-w-7xl px-7 mx-auto fixed top-7 left-0 right-0 z-50 transition-all duration-300",
+          textColor,
+          showNavbar
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-10 pointer-events-none"
+        )}
+      >
+        <div className="container flex items-center justify-between">
+          <a
+            href="/"
+            className={cn(
+              "text-lg font-semibold uppercase tracking-wider",
+              textColor
+            )}
+          >
+            FANCI CLUB
+          </a>
 
-        {/* Nav links */}
-        <nav className="hidden md:flex gap-6">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                cn(
-                  "text-sm font-medium transition-colors hover:text-foreground/80",
-                  isActive ? "text-foreground" : "text-muted-foreground"
-                )
-              }
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+          <nav className="hidden md:grid md:grid-cols-4 md:gap-18">
+            {navItems.map((item) => (
+              <button
+                key={item.key}
+                onClick={() => toggleMenu(item.key)}
+                className={cn(
+                  "text-xs font-medium transition-colors cursor-pointer",
+                  textColor,
+                  menuType === item.key && isOpen
+                    ? "underline underline-offset-4 decoration-[1px] decoration-white"
+                    : ""
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
 
-        {/* Action icons */}
-        <div className="flex items-center gap-4">
-          <button aria-label="Search">
-            <Search className="w-5 h-5" />
-          </button>
-          <button aria-label="Cart">
-            <ShoppingBag className="w-5 h-5" />
-          </button>
-          <button aria-label="Account">
-            <User className="w-5 h-5" />
-          </button>
+          <div
+            className={cn(
+              "min-w-[120px] flex justify-end items-center gap-4",
+              textColor
+            )}
+          >
+            <button>
+              <LuSearch size={12} />
+            </button>
+            <button>
+              <LuShoppingBag size={12} />
+            </button>
+            <button>
+              <LuLogIn size={12} />
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <AnimatePresence onExitComplete={() => setMenuType(null)}>
+        {isOpen && menuType && (
+          <MegaMenuOverlay type={menuType} onClose={() => setIsOpen(false)} />
+        )}
+      </AnimatePresence>
+    </>
   );
 };
