@@ -1,6 +1,12 @@
 import { Button } from "@/presentation/components/ui/button";
 import { ArrowRight, Map } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/presentation/components/ui/accordion";
 
 const HomePage = () => {
   return (
@@ -78,6 +84,148 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <section className="w-full min-h-screen p-20">
+        <div className="p-4 space-y-16">
+          <div className="w-full grid grid-cols-2 gap-10">
+            <p className="text-6xl font-semibold">
+              NEW GUINEA: ANCIENT MYSTERIES
+            </p>
+            <div className="w-3/4 ml-auto text-right">
+              <p>
+                A place where nature and adventure unite A place where nature
+                and adventure unite A place where nature and adventure unite A
+                place where nature and adventure unite A place where nature and
+                adventure unite A place where nature and adventure unite
+              </p>
+              <div className="ml-auto grid grid-cols-2 w-fit mt-6 gap-2">
+                <Button className="rounded-full h-10 font-normal">
+                  Reminder me
+                </Button>
+                <Button
+                  variant={"outline"}
+                  className="rounded-full h-10 font-normal border-black"
+                >
+                  Learn more
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-6">
+            <div className="w-full flex items-center gap-6">
+              <div className="w-2/3 h-96 bg-gray-100 rounded-xl"></div>
+              <div className="h-96 w-1/3 bg-gray-100 rounded-xl"></div>
+            </div>
+            <div className="w-full grid grid-cols-3 gap-6">
+              <div className="h-96 w-full bg-gray-100 rounded-xl"></div>
+              <div className="h-96 w-full bg-gray-100 rounded-xl"></div>
+              <div className="h-96 w-full bg-gray-100 rounded-xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full p-20 grid grid-cols-2 gap-16">
+        <div className="w-full space-y-6">
+          <p className="text-6xl font-semibold">
+            NEW GUINEA: ANCIENT MYSTERIES
+          </p>
+          <div className="ml-auto">
+            <p>
+              A place where nature and adventure unite A place where nature and
+              adventure unite A place where nature and adventure unite A place
+              where nature and adventure unite A place where nature and
+              adventure unite A place where nature and adventure unite
+            </p>
+          </div>
+          <div className="grid grid-cols-2 w-fit gap-2">
+            <Button className="rounded-full h-10 font-normal">
+              Reminder me
+            </Button>
+            <Button
+              variant={"outline"}
+              className="rounded-full h-10 font-normal border-black"
+            >
+              Learn more
+            </Button>
+          </div>
+        </div>
+        <div className="w-full grid grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div className="h-96 w-full bg-gray-100 rounded-xl"></div>
+            <div className="px-2 space-y-1">
+              <p className="font-semibold">Bird of paradise watch</p>
+              <p className="text-sm text-gray-500">
+                Witness the spectacular courship displays of these mythical
+                birds
+              </p>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div className="h-96 w-full bg-gray-100 rounded-xl"></div>
+            <div className="px-2 space-y-1">
+              <p className="font-semibold">Bird of paradise watch</p>
+              <p className="text-sm text-gray-500">
+                Witness the spectacular courship displays of these mythical
+                birds
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full min-h-screen p-20 space-y-12">
+        <div className="w-3/5 mx-auto text-center space-y-6">
+          <p className="text-6xl font-semibold">ANCIENT MYSTERIES</p>
+          <p>
+            A place where nature and adventure unite A place where nature and
+            adventure unite A place where nature and adventure unite A place
+            where nature and adventure unite A place where nature and adventure
+            unite A place where nature and adventure unite
+          </p>
+        </div>
+
+        <div className="w-full grid grid-cols-2 gap-16">
+          <div className="w-full h-96 rounded-lg bg-gray-100"></div>
+          <Accordion type="multiple" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Is it styled?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It comes with default styles that matches the other
+                components&apos; aesthetic.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is it animated?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It's animated by default, but you can disable it if you
+                prefer.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      <section className="min-h-screen w-full bg-center bg-no-repeat bg-cover bg-black text-white p-20 space-y-6 flex items-center justify-center">
+        <div className="text-center space-y-6">
+          <p className="text-6xl uppercase font-bold ">BEGIN YOUR ADVENTURE</p>
+          <p className="w-2/3 mx-auto">
+            "Fancì Club is a collective of Vietnamese youth who live to
+            celebrate beauty and humanity, Carrying that message brings us
+            gratitude for life, and abundance of joy to create."
+          </p>
+          <Button className="dark rounded-full h-10 px-10 mt-4">
+            <p className="font-medium ml-2">Plan My Trip</p>
+            <ArrowRight size={20} className="mr-2" />
+          </Button>
+        </div>
+      </section>
     </>
   );
 };
