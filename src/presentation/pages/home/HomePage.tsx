@@ -1,80 +1,81 @@
-import ProductCard from "@/presentation/components/cards/ProductCard";
+import { Button } from "@/presentation/components/ui/button";
+import { ArrowRight, Map } from "lucide-react";
+import { Typewriter } from "react-simple-typewriter";
 
 const HomePage = () => {
   return (
     <>
-      <div className="bg-[url('https://fanciclub.io/wp-content/uploads/2025/03/adobe-express-file-1.jpg')] relative bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4">
-        <div className="h-full w-full absolute bg-black/20 top-0"></div>
+      <section className="relative min-h-screen p-20 w-full bg-cover bg-no-repeat bg-center bg-[url('https://img.freepik.com/free-photo/mesmerizing-scenery-green-mountains-with-cloudy-sky-surface_181624-27189.jpg?t=st=1745740709~exp=1745744309~hmac=9b1402f65ba9f8c24ff8c3a817d4007feec023cb01dc53461ac575e498db3ced&w=1800')]">
+        <div className="w-full min-h-screen bg-black/30 absolute top-0 left-0 z-0" />
+      </section>
+      {/* <div className="absolute flex items-center rotate-90 gap-4 text-white right-10 mr-10 top-1/3 font-semibold">
+        <p>SCROLL</p>
+        <ArrowRight size={20} className="mr-2" />
+      </div> */}
+      <div className="w-full h-full absolute top-0 p-20">
+        <div className="w-full h-full text-white z-10 px-6 flex flex-col justify-between">
+          <div className="space-y-8">
+            <div className="text-8xl uppercase font-bold text-right">
+              <span>
+                <Typewriter
+                  words={["Hagiang loop", "Cuc bac coffe", "Khoi homstay"]}
+                  loop={0}
+                  cursor
+                  // cursorStyle="_"
+                  typeSpeed={100}
+                  deleteSpeed={50}
+                  delaySpeed={3000}
+                />
+              </span>
+            </div>
+            <div className="space-y-4">
+              <p className="text-sm bg-white/20 w-fit p-2 px-4 rounded-full capitalize font-medium">
+                A place where nature and adventure unite
+              </p>
+              <div className="text-6xl font-semibold">Experience the</div>
 
-        <h1 className="text-[10px] font-light z-10">Shop now</h1>
-        <p className="text-lg font-light z-10">FW25 ROARING</p>
-      </div>
-      <div className="grid grid-cols-2">
-        <div className="bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4 relative">
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://fanciclub.io/wp-content/uploads/2025/02/15-resize.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="h-full w-full absolute bg-black/20 top-0"></div>
-          <h1 className="text-[10px] font-light z-10">Shop now</h1>
-          <p className="text-lg font-light z-10">FW25 ROARING</p>
-        </div>
+              <div className="text-7xl font-semibold">Magic of Vietnam</div>
+              <Button className="dark w-fit rounded-full h-10 px-10 mt-4">
+                <p className="font-medium ml-2">Explore Now</p>
+                <ArrowRight size={20} className="mr-2" />
+              </Button>
+            </div>
+          </div>
+          <div className="w-full h-full flex items-end">
+            <div className="w-3/5 grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-6">
+                <div className="h-12 min-w-12 rounded-full bg-white/30 flex items-center justify-center">
+                  <Map />
+                </div>
+                <p className="text-sm text-white/80">
+                  Provides a visual representation of destinations, attractions,
+                  and activities
+                </p>
+              </div>
 
-        {/* //https://fanciclub.io/wp-content/uploads/2024/12/d4-4-864x1080.png */}
-        {/* https://fanciclub.io/wp-content/uploads/2024/12/d4-3-864x1080.png */}
+              <div className="flex items-center gap-6">
+                <div className="h-12 min-w-12 rounded-full bg-white/30 flex items-center justify-center">
+                  <Map />
+                </div>
+                <p className="text-sm text-white/80">
+                  Provides a visual representation of destinations, attractions,
+                  and activities
+                </p>
+              </div>
+            </div>
 
-        <div className="bg-[url('https://fanciclub.io/wp-content/uploads/2024/12/67-6.jpg')] relative bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4">
-          <div className="h-full w-full absolute bg-black/20 top-0"></div>
-          <h1 className="text-[10px] font-light z-10">Shop now</h1>
-          <p className="text-lg font-light z-10 uppercase">Dresses</p>
-        </div>
-      </div>
-
-      <div className="w-full grid grid-cols-4">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
-
-      <div className="bg-[url('https://fanciclub.io/wp-content/uploads/2025/03/adobe-express-file-1.jpg')] relative bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4">
-        <div className="h-full w-full absolute bg-black/20 top-0"></div>
-
-        <h1 className="text-[10px] font-light z-10">Shop now</h1>
-        <p className="text-lg font-light z-10">FW25 ROARING</p>
-      </div>
-      <div className="grid grid-cols-2">
-        <div className="bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4 relative">
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://fanciclub.io/wp-content/uploads/2025/02/15-resize.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <div className="h-full w-full absolute bg-black/20 top-0"></div>
-          <h1 className="text-[10px] font-light z-10">Shop now</h1>
-          <p className="text-lg font-light z-10">FW25 ROARING</p>
-        </div>
-
-        {/* //https://fanciclub.io/wp-content/uploads/2024/12/d4-4-864x1080.png */}
-        {/* https://fanciclub.io/wp-content/uploads/2024/12/d4-3-864x1080.png */}
-
-        <div className="bg-[url('https://fanciclub.io/wp-content/uploads/2024/12/67-6.jpg')] relative bg-cover bg-center min-h-screen flex flex-col items-center justify-end text-white p-4">
-          <div className="h-full w-full absolute bg-black/20 top-0"></div>
-          <h1 className="text-[10px] font-light z-10">Shop now</h1>
-          <p className="text-lg font-light z-50 uppercase">Dresses</p>
+            <div className="ml-auto space-y-4">
+              <div className="h-10 min-w-10 rounded-full bg-white/30 flex items-center justify-center">
+                <Map size={20} />
+              </div>
+              <div className="h-10 min-w-10 rounded-full bg-white/30 flex items-center justify-center">
+                <Map size={20} />
+              </div>
+              <div className="h-10 min-w-10 rounded-full bg-white/30 flex items-center justify-center">
+                <Map size={20} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

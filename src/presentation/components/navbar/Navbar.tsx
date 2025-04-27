@@ -72,14 +72,14 @@ export const Navbar = () => {
           <a
             href="/"
             className={cn(
-              "text-lg font-semibold uppercase tracking-wider",
+              "text-xl font-semibold uppercase tracking-wider",
               textColor
             )}
           >
-            FANCI CLUB
+            Wanderlush
           </a>
 
-          <nav className="hidden md:grid md:grid-cols-4 md:gap-18">
+          {/* <nav className="hidden md:grid md:grid-cols-4 md:gap-18">
             {navItems.map((item) => (
               <button
                 key={item.key}
@@ -95,22 +95,20 @@ export const Navbar = () => {
                 {item.label}
               </button>
             ))}
-          </nav>
+          </nav> */}
 
-          <div
-            className={cn(
-              "min-w-[120px] flex justify-end items-center gap-4",
-              textColor
-            )}
-          >
+          <div className={cn("flex justify-end items-center gap-6", textColor)}>
             <button>
-              <LuSearch size={12} />
+              <LuSearch size={16} />
             </button>
-            <button>
+            {/* <button>
               <LuShoppingBag size={12} />
-            </button>
+            </button> */}
             <button>
-              <LuLogIn size={12} />
+              <LuLogIn size={16} />
+            </button>
+            <button className="text-sm px-4 py-2 border-2 rounded-full border-white text-white hover:bg-white hover:text-black transition-colors duration-300">
+              Schedule Now
             </button>
           </div>
         </div>
