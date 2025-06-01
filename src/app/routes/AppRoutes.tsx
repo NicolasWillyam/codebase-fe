@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import { lazy } from "react";
 
-// 👇 Lazy load các page chính
+// 👇 Lazy load page chính
 const HomePage = lazy(() => import("@/presentation/pages/home/HomePage"));
 const ProductCategoryPage = lazy(
   () => import("@/presentation/pages/products/[category]/ProductCategoryPage")
@@ -27,7 +27,7 @@ export const AppRoutes = () => {
     { path: "/collections", element: <CollectionPage /> },
     { path: "/collection/:slug", element: <CollectionDetailPage /> },
     { path: "/explore", element: <ExplorePage /> },
-    // 👇 Bạn có thể thêm NotFound ở đây nếu cần thêm
+    // 👇 Bạn có thể thêm NotFound ở đây nếu cần 
   ]);
 
   return element;
