@@ -1,6 +1,6 @@
 import "tailwindcss";
-/* Import Tailwind CSS */
-/* @import "tw-animate-css"; // Optional animation plugin */
+/* Import Tailwind  CSS */
+/* import "tw-animate-css"; // Optional animation plugin */
 
 /* Tùy biến variant cho dark mode */
 @custom-variant dark (&:is(.dark *));
