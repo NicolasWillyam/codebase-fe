@@ -27,7 +27,7 @@ export const AppRoutes = () => {
     { path: "/collections", element: <CollectionPage /> },
     { path: "/collection/:slug", element: <CollectionDetailPage /> },
     { path: "/explore", element: <ExplorePage /> },
-    // 👇 Bạn có thể thêm NotFound ở đây nếu cần
+    // 👇 Bạn có thể thêm NotFound ở đây nếu cần thêm
   ]);
 
   return element;
