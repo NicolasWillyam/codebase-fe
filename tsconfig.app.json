@@ -1,34 +1,46 @@
 {
   "compilerOptions": {
+    // Lưu file build info để tăng tốc độ build lại
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Target ECMAScript version
     "target": "ES2020",
+
+    // Sử dụng `define` cho class fields (chuẩn mới)
     "useDefineForClassFields": true,
+
+    // Thư viện môi trường được hỗ trợ
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    // Sử dụng module kiểu ESNext
     "module": "ESNext",
+
+    // Bỏ qua kiểm tra type trong thư viện (tăng tốc)
     "skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    /* Bundler mode - dùng với Vite hoặc các bundler hiện đại */
+    "moduleResolution": "bundler", // Resolve module theo kiểu bundler
+    "allowImportingTsExtensions": true, // Cho phép import file .ts/.tsx có phần mở rộng
+    "isolatedModules": true, // Mỗi file là 1 module riêng biệt
+    "moduleDetection": "force", // Luôn phát hiện module (không cần `import/export`)
+    "noEmit": true, // Không xuất file .js sau khi build
+    "jsx": "react-jsx", // JSX runtime mới của React 17+
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+    "strict": true, // Bật tất cả kiểm tra nghiêm ngặt
+    "noUnusedLocals": true, // Cảnh báo biến khai báo nhưng không dùng
+    "noUnusedParameters": true, // Cảnh báo tham số không sử dụng
+    "noFallthroughCasesInSwitch": true, // Ngăn rơi qua case trong switch
+    "noUncheckedSideEffectImports": true, // Cảnh báo import có side effect không kiểm soát
 
-    /* Type checking */
-    "baseUrl": ".",
+    /* Type checking và alias */
+    "baseUrl": ".", // Gốc của các path import
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"] // Alias @ trỏ tới thư mục src
     }
   },
+
+  // Chỉ bao gồm thư mục src khi biên dịch
   "include": ["src"]
 }
+

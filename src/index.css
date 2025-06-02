@@ -1,13 +1,18 @@
-@import "tailwindcss";
-/* @import "tw-animate-css"; */
+import "tailwindcss";
+/* Import Tailwind  CSS */
+/* import "tw-animate-css"; // Optional animation plugin */
 
+/* Tùy biến variant cho dark mode */
 @custom-variant dark (&:is(.dark *));
 
+/* Định nghĩa các biến theme nội tuyến */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Các biến màu dùng chung */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -26,11 +31,15 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  /* Màu biểu đồ */
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+
+  /* Màu sidebar */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -41,8 +50,11 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Thiết lập mặc định cho light mode */
 :root {
   --radius: 0.625rem;
+
+  /* Màu nền, chữ, giao diện light */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -61,6 +73,8 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
+
+  /* Biểu đồ + sidebar */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -76,6 +90,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* Ghi đè biến trong dark mode */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -110,15 +125,16 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Base styles */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50; /* Áp dụng border + outline mặc định */
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Nền và chữ theo theme */
   }
 
   p {
-    letter-spacing: -0.010em;
+    letter-spacing: -0.010em; /* Giảm khoảng cách chữ cho đoạn văn */
   }
 }
