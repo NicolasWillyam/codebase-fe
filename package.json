@@ -1,49 +1,54 @@
 {
-  "name": "ncs-fe",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "ncs-fe", // Tên của project (FE = Frontend)
+  "private": true, // Không cho phép publish package này lên npm
+  "version": "0.0.0", // Phiên bản hiện tại của project
+  "type": "module", // Sử dụng ES module thay vì CommonJS
+
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "vite", // Chạy project ở chế độ phát triển với Vite
+    "build": "tsc -b && vite build", // Build TypeScript trước rồi dùng Vite để build ứng dụng
+    "lint": "eslint .", // Chạy ESLint để kiểm tra toàn bộ mã nguồn
+    "preview": "vite preview" // Xem thử build sau khi `vite build`
   },
+
   "dependencies": {
-    "@hookform/resolvers": "^5.0.1",
-    "@reduxjs/toolkit": "^2.7.0",
-    "@tailwindcss/vite": "^4.1.4",
-    "antd": "^5.24.7",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "framer-motion": "^12.7.4",
-    "lucide-react": "^0.501.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-hook-form": "^7.55.0",
-    "react-icons": "^5.5.0",
-    "react-redux": "^9.2.0",
-    "react-router-dom": "^7.5.1",
-    "tailwind-merge": "^3.2.0",
-    "tailwind-variants": "^1.0.0",
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.3"
+    // Các package cần thiết để ứng dụng chạy
+    "@hookform/resolvers": "^5.0.1", // Bộ chuyển đổi schema cho react-hook-form (zod, yup, ...)
+    "@reduxjs/toolkit": "^2.7.0", // Bộ công cụ hiện đại để dùng Redux dễ hơn
+    "@tailwindcss/vite": "^4.1.4", // Plugin Tailwind cho Vite
+    "antd": "^5.24.7", // Thư viện UI Ant Design
+    "class-variance-authority": "^0.7.1", // Tạo class tailwind linh hoạt (biến thể)
+    "clsx": "^2.1.1", // Gộp className có điều kiện
+    "framer-motion": "^12.7.4", // Thư viện animation cho React
+    "lucide-react": "^0.501.0", // Icon vector dạng SVG nhẹ, dùng với React
+    "react": "^19.0.0", // Thư viện React core
+    "react-dom": "^19.0.0", // React DOM
+    "react-hook-form": "^7.55.0", // Thư viện quản lý form trong React
+    "react-icons": "^5.5.0", // Gói icon tổng hợp
+    "react-redux": "^9.2.0", // Kết nối Redux với React
+    "react-router-dom": "^7.5.1", // Quản lý định tuyến trong React
+    "tailwind-merge": "^3.2.0", // Merge các class Tailwind (ưu tiên đúng)
+    "tailwind-variants": "^1.0.0", // Tạo biến thể UI cho Tailwind (theo kiểu CSS-in-JS)
+    "tailwindcss-animate": "^1.0.7", // Plugin animation cho Tailwind
+    "zod": "^3.24.3" // Thư viện định nghĩa schema/validation kiểu TypeScript
   },
+
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
-    "@types/node": "^22.14.1",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.22.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^16.0.0",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
-    "typescript": "~5.7.2",
-    "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    // Các package chỉ cần thiết trong quá trình phát triển
+    "@eslint/js": "^9.22.0", // ESLint config mặc định cho JavaScript
+    "@types/node": "^22.14.1", // Kiểu TypeScript cho Node.js
+    "@types/react": "^19.0.10", // Kiểu TypeScript cho React
+    "@types/react-dom": "^19.0.4", // Kiểu TypeScript cho React DOM
+    "@vitejs/plugin-react": "^4.3.4", // Plugin hỗ trợ React cho Vite (Fast Refresh, JSX)
+    "autoprefixer": "^10.4.21", // Thêm vendor prefix vào CSS
+    "eslint": "^9.22.0", // Công cụ kiểm tra code (lint)
+    "eslint-plugin-react-hooks": "^5.2.0", // Kiểm tra đúng quy tắc React hooks
+    "eslint-plugin-react-refresh": "^0.4.19", // Plugin hỗ trợ hot-reload React
+    "globals": "^16.0.0", // Tập hợp biến toàn cục cho môi trường (browser, node, ...)
+    "postcss": "^8.5.3", // Tiền xử lý CSS (dùng với Tailwind)
+    "tailwindcss": "^4.1.4", // Framework CSS tiện dụng
+    "typescript": "~5.7.2", // Ngôn ngữ TypeScript
+    "typescript-eslint": "^8.26.1", // Hỗ trợ lint code TypeScript với ESLint
+    "vite": "^6.3.1" // Bundler frontend thế hệ mới - nhanh, nhẹ
   }
 }
