@@ -1,22 +1,30 @@
 import { useRoutes } from "react-router-dom";
 import { lazy } from "react";
 
-// 👇 Lazy load các page chính
+// Lazy load các trang chính
 const HomePage = lazy(() => import("@/presentation/pages/home/HomePage"));
-const ProductCategoryPage = lazy(
-  () => import("@/presentation/pages/products/[category]/ProductCategoryPage")
+const ProductCategoryPage = lazy(() =>
+  import("@/presentation/pages/products/[category]/ProductCategoryPage")
 );
-const ProductDetailPage = lazy(
-  () => import("@/presentation/pages/product-detail/[slug]/ProductDetailPage")
+const ProductDetailPage = lazy(() =>
+  import("@/presentation/pages/product-detail/[slug]/ProductDetailPage")
 );
-const CollectionPage = lazy(
-  () => import("@/presentation/pages/collections/index")
+const CollectionPage = lazy(() =>
+  import("@/presentation/pages/collections/index")
 );
-const CollectionDetailPage = lazy(
-  () => import("@/presentation/pages/collections/[slug]/CollectionDetailPage")
+const CollectionDetailPage = lazy(() =>
+  import("@/presentation/pages/collections/[slug]/CollectionDetailPage")
 );
-const ExplorePage = lazy(
-  () => import("@/presentation/pages/explore/ExplorePage")
+const ExplorePage = lazy(() =>
+  import("@/presentation/pages/explore/ExplorePage")
+);
+
+// 👇 Thêm mới: Homestay
+const HomestayListPage = lazy(() =>
+  import("@/presentation/pages/homestay/HomestayListPage")
+);
+const HomestayDetailPage = lazy(() =>
+  import("@/presentation/pages/homestay/[id]/HomestayDetailPage")
 );
 
 export const AppRoutes = () => {
@@ -27,7 +35,10 @@ export const AppRoutes = () => {
     { path: "/collections", element: <CollectionPage /> },
     { path: "/collection/:slug", element: <CollectionDetailPage /> },
     { path: "/explore", element: <ExplorePage /> },
-    // 👇 Bạn có thể thêm NotFound ở đây nếu cần
+
+    // ✅ Route cho Homestay
+    { path: "/homestays", element: <HomestayListPage /> },
+    { path: "/homestays/:id", element: <HomestayDetailPage /> },
   ]);
 
   return element;
