@@ -1,5 +1,8 @@
-import { useRoutes } from "react-router-dom";
+import { useRoutes, Routes, Route } from "react-router-dom";
 import { lazy } from "react";
+import { ToursPage } from '@/presentation/pages/ToursPage';
+import { BookingPage } from '@/presentation/pages/BookingPage';
+import { MyBookingsPage } from '@/presentation/pages/MyBookingsPage';
 
 // Lazy load các trang chính
 const HomePage = lazy(() => import("@/presentation/pages/home/HomePage"));
@@ -41,5 +44,11 @@ export const AppRoutes = () => {
     { path: "/homestays/:id", element: <HomestayDetailPage /> },
   ]);
 
-  return element;
+  return (
+    <Routes>
+      <Route path="/" element={<ToursPage />} />
+      <Route path="/booking/:tourId" element={<BookingPage />} />
+      <Route path="/my-bookings" element={<MyBookingsPage />} />
+    </Routes>
+  );
 };
