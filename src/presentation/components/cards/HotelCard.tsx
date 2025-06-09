@@ -1,23 +1,37 @@
-import { StarIcon, MapPin } from "lucide-react";
+import { StarIcon, MapPin, Heart } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 
-export function HotelCard({ hotel }) {
+export function HotelCard({ data }: { data: any }) {
   return (
-    <Card className="border-none p-0 shadow-none rounded-xl aspect-3/4 object-cover overflow-hidden bg-center bg-cover bg-no bg-[url('https://www.holidify.com/images/cmsuploads/compressed/226441293_20210122155341.jpg')]">
-      <div className="p-2 h-full flex flex-col justify-between">
-        <div className="w-fit ml-auto mt-1 mr-1 bg-white/20 backdrop-blur-sm text-white rounded-xl bottom-0 flex items-center justify-between p-1 px-2">
-          <StarIcon className="h-4 w-4 mr-1 text-yellow-500" />
-          <p className="font-medium">{hotel.rating}</p>
-        </div>
-
-        <div className="w-full bg-white/20 backdrop-blur-sm text-white rounded-xl bottom-0 flex items-end justify-between p-2 px-3">
-          <div className="py-0.5 space-y-1">
-            <p className="text-lg font-medium">{hotel.name}</p>
-            <div className="flex items-center gap-1">
-              <MapPin className="h-4 w-4" /> <p>{hotel.location}</p>
-            </div>
+    <Card
+      // style={{
+      //   backgroundImage: `url(${data.images[0]})`,
+      // }}
+      className="border-none p-0 shadow-none rounded-xl gap-2"
+    >
+      <div className="relative shadow-md rounded-2xl ">
+        <img
+          src={data.images[1]}
+          alt=""
+          className="aspect-1/1 object-cover rounded-2xl"
+        />
+        <div className="w-full p-2 h-full flex flex-col justify-between items-end top-0 absolute ml-auto">
+          <div className="w-fit ml-auto mt-1 mr-1 bg-white/20 backdrop-blur-sm text-white rounded-full bottom-0 flex items-center justify-between p-2 px-2">
+            <Heart className="h-4 w-4" />
+            {/* <p className="font-medium">4.9</p> */}
           </div>
-          <p className="font-medium text-2xl">${hotel.price}</p>
+        </div>
+      </div>
+      <div className="px-1 space-y-1">
+        <p className="text-left line-clamp-2 font-medium">{data.name}</p>
+        <div className="flex items-center gap-2 text-left text-[11px] line-clamp-2 text-foreground/50">
+          <p className="text-[11px] ">
+            <span className="underline underline-offset-1 mr-0.5">đ</span>
+            {data.pricePerNight.toLocaleString("vi-VN")} cho 1 đêm{" "}
+          </p>
+          <p className="flex items-center gap-1 text-[11px] ">
+            <StarIcon size={11} /> 4,9
+          </p>
         </div>
       </div>
     </Card>

@@ -7,93 +7,6 @@ import { FilterTabs } from "@/presentation/filters/FilterTabs";
 import { Bell, Heart, ShoppingBag, User } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
-export const hotels = [
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Bromo Valley Villas",
-    location: "East Java, Indonesia",
-    price: 280,
-    rating: 4.9,
-    image: "https://example.com/bromo1.jpg",
-  },
-  {
-    name: "Plataran Bromo",
-    location: "East Java, Indonesia",
-    price: 285,
-    rating: 4.9,
-    image: "https://example.com/bromo2.jpg",
-  },
-  {
-    name: "Jiwa Jawa Resort",
-    location: "East Java, Indonesia",
-    price: 287,
-    rating: 4.9,
-    image: "https://example.com/bromo3.jpg",
-  },
-];
-
 const filters = [
   "Khách sạn",
   "Vé máy bay",
@@ -107,6 +20,8 @@ const SearchResultPage = () => {
   const [showFilter, setShowFilter] = useState(true);
   const { data, isLoading, error } = useGetHomestaysQuery({});
 
+  console.log(data);
+
   useEffect(() => {
     const handleScroll = () => {
       setShowFilter(window.scrollY < 50); // Ẩn nếu cuộn quá 50px
@@ -115,6 +30,8 @@ const SearchResultPage = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!data) return null;
   return (
     <>
       <div className="w-full h-auto transition-all duration-300 border-b bg-white fixed z-10 top-0 py-2 pb-4">
@@ -186,9 +103,9 @@ const SearchResultPage = () => {
       </div>
       <section className="min-h-screen max-w-[1380px] px-4 mx-auto  w-full bg-center bg-no-repeat bg-cover space-y-6 py-40">
         <div className="text-center space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-6">
-            {hotels.map((hotel, i) => (
-              <HotelCard key={i} hotel={hotel} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 mt-6">
+            {data.data.map((item, id) => (
+              <HotelCard key={id} data={item} />
             ))}
           </div>
         </div>
