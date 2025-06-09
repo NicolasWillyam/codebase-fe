@@ -1,3 +1,4 @@
+import { useGetHomestaysQuery } from "@/features/homestay/api/homestayApi";
 import { HotelCard } from "@/presentation/components/cards/HotelCard";
 import { SearchBar } from "@/presentation/components/searchs/SearchBar";
 import { SearchRoomBar } from "@/presentation/components/searchs/SearchRoomBar";
@@ -104,6 +105,7 @@ const filters = [
 
 const SearchResultPage = () => {
   const [showFilter, setShowFilter] = useState(true);
+  const { data, isLoading, error } = useGetHomestaysQuery({});
 
   useEffect(() => {
     const handleScroll = () => {

@@ -154,14 +154,22 @@ export function SearchRoomBar({ zoomIn }: { zoomIn: boolean }) {
         </Select>
       </div>
 
-      <Button
-        className={cn(zoomIn ? "h-14" : "h-10", "px-4 pl-6 rounded-full")}
-      >
-        <div className="flex gap-2 items-center">
-          <p>Plan My Trip</p>
+      {zoomIn ? (
+        <Button
+          className={cn(zoomIn ? "h-14" : "h-10", "px-4 pl-6 rounded-full")}
+        >
+          <div className="flex gap-2 items-center">
+            <p>Plan My Trip</p>
+            <ArrowRight size={16} />
+          </div>
+        </Button>
+      ) : (
+        <Button
+          className={cn(zoomIn ? "h-14" : "h-10", "px-4 pl-6 rounded-full")}
+        >
           <ArrowRight size={16} />
-        </div>
-      </Button>
+        </Button>
+      )}
     </div>
   );
 }

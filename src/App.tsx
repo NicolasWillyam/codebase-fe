@@ -9,21 +9,19 @@ import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
-    <StoreProvider>
-      <BrowserRouter>
-        <Suspense fallback={<>Loading</>}>
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              className:
-                "text-sm px-2 py-1 h-10 rounded-md shadow-md [&>div>svg]:w-4 [&>div>svg]:h-4",
-            }}
-          />
-          <AppRoutes />
-        </Suspense>
-      </BrowserRouter>
-    </StoreProvider>
+    <BrowserRouter>
+      <Suspense fallback={<>Loading</>}>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            className:
+              "text-sm px-2 py-1 h-10 rounded-md shadow-md [&>div>svg]:w-4 [&>div>svg]:h-4",
+          }}
+        />
+        <AppRoutes />
+      </Suspense>
+    </BrowserRouter>
   );
 };
 
