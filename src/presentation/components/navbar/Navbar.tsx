@@ -4,6 +4,9 @@ import { cn } from "@/shared/libs/utils";
 import { AnimatePresence } from "framer-motion";
 import { LuShoppingBag, LuSearch, LuLogIn } from "react-icons/lu";
 import { useLocation } from "react-router-dom";
+import { useAuth } from "@/shared/hooks/useAuth";
+import { Button } from "../ui/button";
+import { User } from "lucide-react";
 
 const navItems = [
   { label: "Garments", key: "garments" },
@@ -15,6 +18,8 @@ const navItems = [
 type MenuKey = (typeof navItems)[number]["key"];
 
 export const Navbar = () => {
+  const { user, logout } = useAuth();
+
   const [menuType, setMenuType] = useState<MenuKey | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
@@ -104,9 +109,24 @@ export const Navbar = () => {
             {/* <button>
               <LuShoppingBag size={12} />
             </button> */}
-            <button>
-              <LuLogIn size={16} />
-            </button>
+            {user ? (
+              <div className="flex justify-end gap-2">
+                <button>
+                  <User size={16} />
+                </button>
+                <span className="font-light text-sm">
+                  hi, {user.name || user.email}
+                </span>
+                {/* <Button variant="outline" onClick={logout}>
+                  Log out
+                </Button> */}
+              </div>
+            ) : (
+              <button>
+                <LuLogIn size={16} />
+              </button>
+            )}
+
             <button className="text-sm px-4 py-2 border-2 rounded-full border-white text-white hover:bg-white hover:text-black transition-colors duration-300">
               Schedule Now
             </button>

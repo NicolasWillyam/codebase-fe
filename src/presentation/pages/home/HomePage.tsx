@@ -7,8 +7,37 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/presentation/components/ui/accordion";
+import { useAuth } from "@/shared/hooks/useAuth";
+import { SearchBar } from "@/presentation/components/searchs/SearchBar";
+import { FilterTabs } from "@/presentation/filters/FilterTabs";
+import { HotelCard } from "@/presentation/components/cards/HotelCard";
+
+export const hotels = [
+  {
+    name: "Bromo Valley Villas",
+    location: "East Java, Indonesia",
+    price: 280,
+    rating: 4.9,
+    image: "https://example.com/bromo1.jpg",
+  },
+  {
+    name: "Plataran Bromo",
+    location: "East Java, Indonesia",
+    price: 285,
+    rating: 4.9,
+    image: "https://example.com/bromo2.jpg",
+  },
+  {
+    name: "Jiwa Jawa Resort",
+    location: "East Java, Indonesia",
+    price: 287,
+    rating: 4.9,
+    image: "https://example.com/bromo3.jpg",
+  },
+];
 
 const HomePage = () => {
+  const { user, logout } = useAuth();
   return (
     <>
       <section className="relative min-h-screen p-20 w-full bg-cover bg-no-repeat bg-center bg-[url('https://img.freepik.com/free-photo/mesmerizing-scenery-green-mountains-with-cloudy-sky-surface_181624-27189.jpg?t=st=1745740709~exp=1745744309~hmac=9b1402f65ba9f8c24ff8c3a817d4007feec023cb01dc53461ac575e498db3ced&w=1800')]">
@@ -224,6 +253,23 @@ const HomePage = () => {
             <p className="font-medium ml-2">Plan My Trip</p>
             <ArrowRight size={20} className="mr-2" />
           </Button>
+        </div>
+      </section>
+
+      <section className="min-h-screen w-full bg-center bg-no-repeat bg-cover  p-20 space-y-6 flex items-center justify-center">
+        <div className="text-center space-y-6">
+          <p className="text-6xl font-medium w-4/5 text-center mx-auto ">
+            A Selection Of Exceptional Villas And Hotels
+          </p>
+
+          <SearchBar />
+          <FilterTabs />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+            {hotels.map((hotel, i) => (
+              <HotelCard key={i} hotel={hotel} />
+            ))}
+          </div>
         </div>
       </section>
     </>

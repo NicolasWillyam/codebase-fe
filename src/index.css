@@ -115,10 +115,13 @@
     @apply border-border outline-ring/50;
   }
   body {
+    font-family: "Inter";
     @apply bg-background text-foreground;
   }
 
   p {
+    font-size: 13px;
+    font-weight: 400;
     letter-spacing: -0.010em;
   }
 }
