@@ -12,7 +12,7 @@ export function HotelCard({ data }: { data: any }) {
         <img
           src={image}
           alt={name}
-          className="aspect-1/1 object-cover rounded-2xl"
+          className="aspect-square  object-cover rounded-2xl"
         />
         <div className="w-full p-2 h-full flex flex-col justify-between items-end top-0 absolute ml-auto">
           <div className="w-fit ml-auto mt-1 mr-1 bg-white/20 backdrop-blur-sm text-white rounded-full bottom-0 flex items-center justify-between p-2 px-2">

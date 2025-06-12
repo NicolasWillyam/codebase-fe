@@ -152,24 +152,24 @@ const RoomDetailPage = () => {
             <div className="flex gap-2">
               <img
                 src={homestayData.data.images[0]}
-                className="w-1/2 aspect-3/2 bg-gray-100 rounded-l-2xl object-cover object-center"
+                className="w-1/2 aspect-[3/2] bg-gray-100 rounded-l-2xl object-cover object-center"
               />
               <div className="w-1/2 grid grid-cols-2 gap-2">
                 <img
                   src={homestayData.data.images[1]}
-                  className="w-full aspect-3/2 object-cover object-center bg-gray-100 "
+                  className="w-full aspect-[3/2] object-cover object-center bg-gray-100 "
                 />
                 <img
                   src={homestayData.data.images[2]}
-                  className="w-full aspect-3/2 object-cover object-center bg-gray-100 rounded-tr-2xl"
+                  className="w-full aspect-[3/2] object-cover object-center bg-gray-100 rounded-tr-2xl"
                 />
                 <img
                   src={homestayData.data.images[3]}
-                  className="w-full aspect-3/2 object-cover object-center bg-gray-100"
+                  className="w-full aspect-[3/2] object-cover object-center bg-gray-100"
                 />
                 <img
                   src={homestayData.data.images[4]}
-                  className="w-full aspect-3/2 object-cover object-center bg-gray-100 rounded-br-2xl"
+                  className="w-full aspect-[3/2] object-cover object-center bg-gray-100 rounded-br-2xl"
                 />
               </div>
             </div>
@@ -188,7 +188,7 @@ const RoomDetailPage = () => {
                 <img
                   key={img}
                   src={img}
-                  className="w-3xl mx-auto  bg-gray-100 object-cover object-center"
+                  className="max-w-3xl mx-auto aspect-[3/2] bg-gray-100 object-cover object-center"
                 />
               ))}
             </ScrollArea>
