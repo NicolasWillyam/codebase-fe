@@ -6,6 +6,7 @@ import { Button } from "@/presentation/components/ui/button";
 import { FilterTabs } from "@/presentation/filters/FilterTabs";
 import { Bell, Heart, ShoppingBag, User } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const filters = [
   "Khách sạn",
@@ -17,6 +18,7 @@ const filters = [
 ];
 
 const SearchResultPage = () => {
+  const navigate = useNavigate();
   const [showFilter, setShowFilter] = useState(true);
   const { data, isLoading, error } = useGetHomestaysQuery({});
 
@@ -105,7 +107,13 @@ const SearchResultPage = () => {
         <div className="text-center space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4 mt-6">
             {data.data.map((item, id) => (
-              <HotelCard key={id} data={item} />
+              <div
+                onClick={() => {
+                  navigate(`/room/${item.id}`);
+                }}
+              >
+                <HotelCard key={id} data={item} />
+              </div>
             ))}
           </div>
         </div>
