@@ -122,6 +122,6 @@
   p {
     font-size: 13px;
     font-weight: 400;
-    letter-spacing: -0.010em;
+    /* letter-spacing: -0.010em; */
   }
 }

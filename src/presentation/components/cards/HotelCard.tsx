@@ -3,7 +3,7 @@ import { Card, CardContent } from "../ui/card";
 
 export function HotelCard({ data }: { data: any }) {
   const name = data?.name ?? "Không có tên";
-  const image = data?.images?.[1] ?? "/icons/logo.jpeg";
+  const image = data?.images?.[0] ?? "/icons/logo.jpeg";
   const price = data?.pricePerNight?.toLocaleString("vi-VN") ?? "0";
 
   return (

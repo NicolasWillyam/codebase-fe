@@ -10,19 +10,19 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const homestayApi = createApi({
   reducerPath: "homestayApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://my-ikame-dev.ikameglobal.com/api/v1",
+    baseUrl: "http://localhost:3000/api/v1/",
   }),
   tagTypes: ["Homestay"],
   endpoints: (builder) => ({
     getHomestays: builder.query<Homestay[], HomestaySearchQueryDto>({
       query: (params) => ({
-        url: "homestays",
+        url: "/homestays",
         params,
       }),
       providesTags: ["Homestay"],
     }),
     getHomestayById: builder.query<Homestay, string>({
-      query: (id) => `homestays/${id}`,
+      query: (id) => `/homestays/${id}`,
       providesTags: (result, error, id) => [{ type: "Homestay", id }],
     }),
     createHomestay: builder.mutation<void, CreateHomestayDto>({
