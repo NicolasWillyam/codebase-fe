@@ -11,6 +11,9 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { SearchBar } from "@/presentation/components/searchs/SearchBar";
 import { FilterTabs } from "@/presentation/filters/FilterTabs";
 import { HotelCard } from "@/presentation/components/cards/HotelCard";
+import { SearchRoomBar } from "@/presentation/components/searchs/SearchRoomBar";
+import { useGetHomestaysQuery } from "@/features/homestay/api/homestayApi";
+import { useNavigate } from "react-router-dom";
 
 export const hotels = [
   {
@@ -38,6 +41,8 @@ export const hotels = [
 
 const HomePage = () => {
   const { user, logout } = useAuth();
+  const { data, isLoading, error } = useGetHomestaysQuery({});
+  const navigate = useNavigate();
   return (
     <>
       <section className="relative min-h-screen p-20 w-full bg-cover bg-no-repeat bg-center bg-[url('https://img.freepik.com/free-photo/mesmerizing-scenery-green-mountains-with-cloudy-sky-surface_181624-27189.jpg?t=st=1745740709~exp=1745744309~hmac=9b1402f65ba9f8c24ff8c3a817d4007feec023cb01dc53461ac575e498db3ced&w=1800')]">
@@ -262,12 +267,23 @@ const HomePage = () => {
             A Selection Of Exceptional Villas And Hotels
           </p>
 
-          <SearchBar />
+          {/* <SearchRoomBar
+            zoomIn={showFilter}
+            onSearch={handleSearch}
+            initialPayload={searchParams || {}}
+          /> */}
+
           <FilterTabs />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-            {hotels.map((hotel, i) => (
-              <HotelCard key={i} hotel={hotel} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mt-6">
+            {data?.data.slice(0, 20).map((item, id) => (
+              <div
+                onClick={() => {
+                  navigate(`/room/${item.id}`);
+                }}
+              >
+                <HotelCard key={id} data={item} />
+              </div>
             ))}
           </div>
         </div>

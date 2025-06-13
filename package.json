@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@hookform/resolvers": "^5.1.1",
     "@lexical/code": "^0.32.1",
     "@lexical/list": "^0.32.1",
     "@lexical/react": "^0.32.1",
@@ -60,7 +61,7 @@
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.3.5",
-    "react-hook-form": "^7.56.4",
+    "react-hook-form": "^7.57.0",
     "react-hot-toast": "^2.5.1",
     "react-icons": "^5.5.0",
     "react-quill": "^2.0.0",
@@ -70,7 +71,8 @@
     "recharts": "^2.15.3",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "universal-cookie": "^8.0.1"
+    "universal-cookie": "^8.0.1",
+    "zod": "^3.25.63"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

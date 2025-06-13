@@ -5,6 +5,7 @@ import { RootLayout } from "../layout/RootLayout";
 import RegisterPage from "@/presentation/pages/auth/register/RegisterPage";
 import SearchResultPage from "@/presentation/pages/search/SearchResultPage";
 import RoomDetailPage from "@/presentation/pages/rooms/RoomDetailPage";
+import BookingPage from "@/presentation/pages/bookings/BookingPage";
 
 // 👇 Lazy load các page chính
 const HomePage = lazy(() => import("@/presentation/pages/home/HomePage"));
@@ -31,6 +32,7 @@ export const AppRoutes = () => {
     { path: "/auth/register", element: <RegisterPage /> },
     { path: "/search", element: <SearchResultPage /> },
     { path: "/room/:id", element: <RoomDetailPage /> },
+    { path: "/bookings", element: <BookingPage /> },
 
     // ✅ With RootLayout
     {

@@ -81,7 +81,10 @@ export const Navbar = () => {
               textColor
             )}
           >
-            Wanderlush
+            <div className="flex items-center">
+              <img src="/icons/logo.png" alt="" width={50} />
+              <span className="text-xl font-semibold  -mb-2 -ml-1">gomore</span>
+            </div>
           </a>
 
           {/* <nav className="hidden md:grid md:grid-cols-4 md:gap-18">

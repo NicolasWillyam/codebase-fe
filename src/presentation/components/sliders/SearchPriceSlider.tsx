@@ -8,14 +8,17 @@ import { ArrowRight } from "lucide-react";
 
 interface SearchPriceSliderProps {
   zoomIn: boolean;
+  priceRange: [number, number];
+  setPriceRange: (range: [number, number]) => void;
 }
 
-export function SearchPriceSlider({ zoomIn }: SearchPriceSliderProps) {
+export function SearchPriceSlider({
+  zoomIn,
+  priceRange,
+  setPriceRange,
+}: SearchPriceSliderProps) {
   const MIN_PRICE = 100000;
   const MAX_PRICE = 10000000;
-  const [priceRange, setPriceRange] = useState<[number, number]>([
-    260000, 3500000,
-  ]);
 
   const histogram = useMemo(
     () => [

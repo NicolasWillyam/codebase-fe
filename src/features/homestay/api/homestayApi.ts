@@ -51,6 +51,13 @@ export const homestayApi = createApi({
       }),
       invalidatesTags: (result, error, id) => [{ type: "Homestay", id }],
     }),
+    searchHomestays: builder.mutation<Homestay[], HomestaySearchQueryDto>({
+      query: (body) => ({
+        url: "/homestays/search",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -60,4 +67,5 @@ export const {
   useCreateHomestayMutation,
   useUpdateHomestayMutation,
   useDeleteHomestayMutation,
+  useSearchHomestaysMutation,
 } = homestayApi;

@@ -6,6 +6,7 @@ import { RootLayout } from "@/app/layout/RootLayout";
 // import { Loading } from "@/shared/ui/Loading";
 import { StoreProvider } from "@/app/providers/StoreProvider";
 import { Toaster } from "react-hot-toast";
+import { toast } from "@/components/ui/use-toast";
 
 const App = () => {
   return (

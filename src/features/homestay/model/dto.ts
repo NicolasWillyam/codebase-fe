@@ -16,3 +16,15 @@ export interface HomestaySearchQueryDto {
   keyword?: string;
   maxPrice?: number;
 }
+
+export type CreateHomestayBookingDto = {
+  fullName: string;
+  email: string;
+  phone: string;
+  homestayId: string;
+  checkInDate: string; // format: YYYY-MM-DD
+  checkOutDate: string; // format: YYYY-MM-DD
+  numberOfGuests: number;
+  note?: string;
+  type?: "homestay";
+};

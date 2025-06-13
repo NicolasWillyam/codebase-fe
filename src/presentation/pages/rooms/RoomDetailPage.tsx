@@ -9,7 +9,7 @@ import { Button } from "@/presentation/components/ui/button";
 import { FilterTabs } from "@/presentation/filters/FilterTabs";
 import { Bell, Heart, Scroll, Share, ShoppingBag, User } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -27,6 +27,7 @@ import {
   SheetTrigger,
 } from "@/presentation/components/ui/sheet";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
+import { BookingFormDialog } from "@/presentation/components/forms/BookingFormDialog";
 
 const filters = [
   "Khách sạn",
@@ -41,6 +42,8 @@ const RoomDetailPage = () => {
   const [showFilter, setShowFilter] = useState(true);
   //   const { data, isLoading, error } = useGetHomestaysQuery({});
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   // Use the specific query for a single homestay by ID
   const { data: homestayData, isLoading, error } = useGetHomestayByIdQuery(id);
@@ -69,7 +72,12 @@ const RoomDetailPage = () => {
     <>
       <div className="w-full h-auto transition-all duration-300 border-b bg-white fixed z-10 top-0 py-2 pb-4">
         <div className="max-w-[1380px] mx-auto px-4 flex items-center justify-between">
-          <div className="flex items-center">
+          <div
+            className="flex items-center"
+            onClick={() => {
+              navigate("/search");
+            }}
+          >
             <img src="/icons/logo.png" alt="" width={50} />
             <p className="text-xl font-medium tracking-tight -mb-2 -ml-1">
               gomore
@@ -212,6 +220,7 @@ const RoomDetailPage = () => {
                 <span className="underline underline-offset-1">23 reviews</span>
               </p>
             </div>
+            <img src="/images/vote.png" alt="" className="mx-auto" />
             <hr />
             <div className="space-y-6">
               <div className="flex items-start gap-8">
@@ -434,7 +443,8 @@ const RoomDetailPage = () => {
               </Dialog>
             </div>
             <hr />
-            <p className="text-[22px] font-medium">
+            <img src="/images/thing.png" alt="" className="w-4/5" />
+            {/* <p className="text-[22px] font-medium">
               Nơi này có những gì cho bạn
             </p>
             <div className="grid grid-cols-2 gap-6">
@@ -614,8 +624,9 @@ const RoomDetailPage = () => {
                   <p className="text-[15px]">Hướng nhìn ra công viên</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
+
           <div className="w-2/5 flex justify-end">
             <div className="w-96 pl-2 space-y-4">
               <div className="w-full h-12 flex items-center justify-center rounded-xl shadow-md border">
@@ -629,12 +640,16 @@ const RoomDetailPage = () => {
                   <p className="text-[15px] mb-0.5">cho 1 đêm</p>
                 </div>
 
-                <Button className="h-12">Đặt phòng ngay</Button>
+                <BookingFormDialog homestayId={homestayData?.data?.id} />
                 <p className="mt-4 text-center">Bạn đang gặp vấn đề?</p>
               </div>
             </div>
           </div>
         </div>
+        <hr />
+        <img src="/images/rate.png" alt="" />
+        <hr />
+        <img src="/images/review.png" alt="" className="w-4/5" />
       </section>
     </>
   );
